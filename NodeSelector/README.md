@@ -1,4 +1,4 @@
-# NodeSelector
+# NodeSelector In [![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=flat-square&logo=Kubernetes&logoColor=ffffff)](https://kubernetes.io/)
 
 # What is NodeSelector ?
 
