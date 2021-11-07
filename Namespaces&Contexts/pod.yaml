@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-11-07T07:20:58Z"
+  labels:
+    run: mypod
+  name: mypod
+  namespace: k8s-series
+  resourceVersion: "58346"
+  uid: 0d361ada-b0d8-4771-8a22-0573d756a15d
+spec:
+  containers:
+  - args:
+    - /bin/sleep
+    - 3650d
+    image: centos:7
+    imagePullPolicy: IfNotPresent
+    name: mypod
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-9j425
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: k8sslave2
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-9j425
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2021-11-07T07:20:58Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2021-11-07T07:21:00Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2021-11-07T07:21:00Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2021-11-07T07:20:58Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://a2ef112effb3a6b69a88f9e0d6ddae285ef465314f7f5b4ed0c2019da4b82c24
+    image: centos:7
+    imageID: docker-pullable://centos@sha256:9d4bcbbb213dfd745b58be38b13b996ebb5ac315fe75711bd618426a630e0987
+    lastState: {}
+    name: mypod
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2021-11-07T07:20:59Z"
+  hostIP: 172.31.3.42
+  phase: Running
+  podIP: 10.244.2.10
+  podIPs:
+  - ip: 10.244.2.10
+  qosClass: BestEffort
+  startTime: "2021-11-07T07:20:58Z"
