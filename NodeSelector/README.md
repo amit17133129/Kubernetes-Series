@@ -75,7 +75,7 @@ status: {}
 
 By this you will see that `mypod` will launching in the `k8sslave1` (**first node**) where as `mypod1` will be launching in `k8sslave2` (**second node**).
 
-Here its detailed implementation of the NodeSlector. you click on node slector image to watch the video of it.
+Here is the detailed implementation of the NodeSlector. you click on node slector image to watch the video of it. Like it if had liked this way of representing the content. 
 
 <p align="center">
   <img width="1000" height="550" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/node_selector.gif?raw=true">
