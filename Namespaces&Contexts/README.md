@@ -41,6 +41,10 @@ kubectl config set-context k8s-series-context --namespace=k8s-series --user=kube
 
 After creating your own context, you can view using `kubectl config view` and you have to update the current-context in the config file. So using commands we can also do so. Just type `kubectl config use-context __context__name__`. You can refer this command `kubectl config  use-context k8s-series-context`. 
 
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/contexts.gif?raw=true">
+</p>
+
 Now after being in the context which you have selected if check in which context you are using this command 
 `kubectl config get-contexts` then you will get the following output.
 
@@ -49,4 +53,8 @@ CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPAC
           kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   
 *         my-k8s-context                kubernetes   kubernetes-admin   k8s-series
 ```
-The asterik * denotes that ou are using that context i.e `my-k8s-context`. 
+The asterik * denotes that ou are using that context i.e `my-k8s-context`. Now if you launched the pod it will take bt default your corren-context and will launch in that context.
+
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/pod-in-k8s-series.gif?raw=true">
+</p>
