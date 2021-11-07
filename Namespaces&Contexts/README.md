@@ -67,3 +67,5 @@ kubectl -n k8s-series run mpod --image=centos:7  -- /bin/sleep 3650d
 <p align="center">
   <img width="1000" height="550" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/pod-in-k8s-series.gif?raw=true">
 </p>
+
+>> Hope You like the explaination of namespaces and context. If yes click on * (star) above and save this repo for learning kubernetes and follow for more interesting learning stuffs.
