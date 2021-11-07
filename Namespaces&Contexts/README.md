@@ -55,6 +55,15 @@ CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPAC
 ```
 The asterik * denotes that ou are using that context i.e `my-k8s-context`. Now if you launched the pod it will take bt default your corren-context and will launch in that context.
 
+```
+# You can run the pod using below command
+kubectl run mpod --image=centos:7  -- /bin/sleep 3650d
+
+# now if you hit the below command same pod will deploy in the same context(k8s-series).
+kubectl -n k8s-series run mpod --image=centos:7  -- /bin/sleep 3650d
+
+```
+
 <p align="center">
   <img width="1000" height="550" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/pod-in-k8s-series.gif?raw=true">
 </p>
