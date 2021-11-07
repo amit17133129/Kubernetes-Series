@@ -23,6 +23,11 @@ kubectl labale node k8sslave1 gpu=false
 
 ```
 
+<p align="center">
+  <img width="1000" height="100" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/node_selector_labels.png?raw=true">
+</p>
+
+
 ## Launching pod with same label of node.
 Now we will launch the pod with the same label as of what we have given in two slave nodes. Here i will be launching one pod with name `mypod` and giving the label as `gpu=true` in the *node selector* section and `mypod1` with the label of another node as `gpu=false`.
 
@@ -76,6 +81,11 @@ status: {}
 By this you will see that `mypod` will launching in the `k8sslave1` (**first node**) where as `mypod1` will be launching in `k8sslave2` (**second node**).
 
 Here is the detailed implementation of the NodeSlector. you click on node slector image to watch the video of it. Like it if had liked this way of representing the content. 
+
+
+<p align="center">
+  <img width="1000" height="100" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/nodesleector.png?raw=true">
+</p>
 
 <p align="center">
   <img width="1000" height="550" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/node_selector.gif?raw=true">
