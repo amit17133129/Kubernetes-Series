@@ -39,6 +39,9 @@ kubectl config set-context k8s-series-context --namespace=k8s-series --user=kube
 
 After creating your own context, you can view using `kubectl config view` and you have to update the current-context in the config file. So using commands we can also do so. Just type `kubectl config use-context __context__name__`. You can refer this command `kubectl config  use-context k8s-series-context`. 
 
+Now after being in the context which you have selected if check in which context you are using this command 
+`kubectl config get-contexts` then you will get the following output.
+
 ```
 CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
           kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   
