@@ -84,7 +84,7 @@ Here is the detailed implementation of the NodeSlector. you click on node slecto
 
 
 <p align="center">
-  <img width="1000" height="100" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/nodesleector.png?raw=true">
+  <img width="1000" height="250" src="https://github.com/amit17133129/Kubernetes-Series/blob/main/Namespaces&Contexts/Images/nodesleector.png?raw=true">
 </p>
 
 <p align="center">
