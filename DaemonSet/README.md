@@ -44,3 +44,9 @@ As you know daemonset is meant to launch the resources in all the respective nod
 Fisrt we have to label the nodes using the below command `kubectl label node k8sslave1 gpu=true` and the another node will be labeled as `kubectl label node k8sslave2 gpu=false`. The node k8sslave1 has a label of `gpu=true` whereas node2 'k8sslave2' has a label of 'gpu=false'.
 
 So we can launch the pods through daemonset within the required node. If the application running inside the pod requires more gpu so we can launhced in node1 i.e., k8sslave1 and vise versa.
+
+
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/DaemonSet_nodeSelector.gif?raw=true">
+</p>
+
