@@ -21,3 +21,14 @@ kubectl create deployment mydaemonset --image=centos:7 --dry-run -o yaml > daemo
 ```
 After running the above command you will get a daemonset.yaml file and the you can edit the following things to launch a daemonset in your cluster.
 ## Need to do changes in deployment file to get a daemonset
+1. Change the name of kind from Deployment --> DaemonSet
+2. Remove relicas 
+3. Remove   strategy: {}
+4. Remove status: {}
+
+After that run the file using `kubectl create -f daemonset.yaml` and then you can check the daemonset resources using `kubectl get ds`. *Here ds means daemonset*. 
+Check the below gif to go through the hands part. 
+
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/creating%20daemonset.gif?raw=true">
+</p>
