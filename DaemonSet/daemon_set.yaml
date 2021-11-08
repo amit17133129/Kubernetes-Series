@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mydaemonset
+  name: mydaemonset
+spec:
+  selector:
+    matchLabels:
+      app: mydaemonset
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mydaemonset
+    spec:
+      containers:
+      - image: centos:7
+        name: centos
+        command: ["/bin/sleep", "3650d"]
+        resources: {}
