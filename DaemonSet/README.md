@@ -15,3 +15,9 @@ Some typical uses of a DaemonSet are:
 In a simple case, one DaemonSet, covering all nodes, would be used for each type of daemon. A more complex setup might use multiple DaemonSets for a single type of daemon, but with different flags and/or different memory and cpu requests for different hardware types.
 
 # Creating your first DaemonSet
+The yaml structure of daemonset is same as deployment. Just edit the deployment file while creating a dry-run of your deployment resource you will get yaml file of your deploymen. you can use below commands to create your deployment file.
+```
+kubectl create deployment mydaemonset --image=centos:7 --dry-run -o yaml > daemonset.yaml
+```
+After running the above command you will get a daemonset.yaml file and the you can edit the following things to launch a daemonset in your cluster.
+## Need to do changes in deployment file to get a daemonset
