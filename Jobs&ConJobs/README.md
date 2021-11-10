@@ -20,3 +20,19 @@ After creating `myjob.yaml` you can launch the job using `kubectl create -f myjo
 <p align="center">
   <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/jobs.gif?raw=true">
 </p>
+
+
+As youcan find tat we have just created a simple job that will complete the work and create a new job if its failed by any reason. But it will create only one job. If you had a requirement then you can create multiple jobs using completions keyuword in `myjob.yaml` file. The completions will helps to launch as many jobs as we have requested. 
+
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: myjob1
+spec:
+  completions: 6
+  template:
+    metadata:
+```
+Here i have setted the `completions=6` in the `spec` section of the job which will launch 6 jobs `sequentially`.
