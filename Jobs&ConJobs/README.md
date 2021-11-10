@@ -142,7 +142,7 @@ As cronjob meant for running a job on a schedule. So, we need to add a schedule 
 
 ```
 spec:
-  schedule: "* * * * *"
+  schedule: "* * * * *"   #changed
   jobTemplate:         # changed
     metadata:
       creationTimestamp: null
