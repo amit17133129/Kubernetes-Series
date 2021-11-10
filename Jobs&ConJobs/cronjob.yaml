@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: mycronjob
+spec:
+  #suspend: true
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: mycronjob
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: centos:7
+            name: mycronjob
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '* * * * *'
+status: {}
