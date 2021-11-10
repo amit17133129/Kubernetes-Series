@@ -108,3 +108,33 @@ As you see that i have set `backoffLimit` to 4. i.e., if the jobs fails more tha
 
 CronJobs are meant for performing regular scheduled actions such as backups, report generation, and so on. Each of those tasks should be configured to recur indefinitely (for example: once a day / week / month); you can define the point in time within that interval when the job should start.
 
+The job yaml file created using two ways.
+1. You can create using command line.
+2. You can edit the myjob.yaml file.
+
+## Creating cronjob using command line.
+```
+
+kubecvtl create cronjob mycronjob --image=centos:7 --schedule='* * * * *' --dry-run -o yaml > mycronjob.yaml
+
+```
+## Creating cronjob by editing myjob.yaml file.
+In the myjob.yaml file you have to edit the following things to create cronjob.
+1. Change the Kind name from `Job` to `CronJob`.
+2. Add a `jobTemplate` section in spec section.
+3. 
+```
+spec:
+  jobTemplate:         # changed
+    metadata:
+      creationTimestamp: null
+      name: mycronjob
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: centos:7
+            name: mycronjob
+```
