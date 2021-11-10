@@ -157,3 +157,28 @@ A detaled demo you can find in the below gif image.
 </p>
 
 ## Suspending CronJob:
+
+While the amount of parallelism and the conditions for Job completion are configurable, the Kubernetes API lacked the ability to suspend and resume Jobs. This is often desired when cluster resources are limited and a higher priority Job needs to execute in the place of another Job. Deleting the lower priority Job is a poor workaround as Pod completion history and other metrics associated with the Job will be lost.
+
+To suspend a job in cronjob we can use `suspend=true` in spec section of the mycronjob.yaml file.
+```
+spec:
+  suspend: true
+  schedule: "* * * * *"   #changed
+  jobTemplate:         # changed
+    metadata:
+      creationTimestamp: null
+      name: mycronjob
+    spec:
+```
+After creating the cronjob you can see that the suspend is true while displaying the output using `kubectl get cronjob`
+
+<p align="center">
+  <img width="1000" height="80" src="https://github.com/amit17133129/images/blob/main/images/suspendTrue.png?raw=true">
+</p>
+
+## Execution:
+
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/suspend.gif?raw=true">
+</p>
