@@ -62,3 +62,14 @@ The actual number of Pods running in a steady state might be less than the paral
   <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/parallelism.gif?raw=true">
 </p>
 
+## BackOffLimit in Jobs:
+
+When a job fails repeatedly, it will eventually reach the configured backoffLimit. Once this limit is reached, the job will no longer be retried. The actual cause of failure for the job may be available in the logs of its pods, or in other events related to the job failure. If you wish to have a job that will retry indefinitely, you can set the restartPolicy to OnFailure. This will ensure the job restarts when it fails, and the backoffLimit will never be reached, essentially creating a Job that retries until successful.
+
+## Execution:
+
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/backoffLimit.gif?raw=true">
+</p>
+
+
