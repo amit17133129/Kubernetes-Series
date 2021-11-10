@@ -42,7 +42,7 @@ spec:
   template:
     metadata:
 ```
-Here i have setted the `completions=6` in the `spec` section of the job which will launch 6 jobs `sequentially`. 
+Here i have set the `completions=6` in the `spec` section of the job which will launch 6 jobs `sequentially`. 
 
 ## Execution: 
 
@@ -56,6 +56,20 @@ By default, Job Pods do not run in parallel. The optional parallelism field spec
 
 The actual number of Pods running in a steady state might be less than the parallelism value if the remaining work is less than the parallelism value. If you have also set completions, the actual number of Pods running in parallel does not exceed the number of remaining completions. A Job may throttle Pod creation in response to excessive Pod creation failure.
 
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: myjob1
+spec:
+  parallelism: 6
+  template:
+    metadata:
+```
+
+Here i have set the `parallelism=6` in the `spec` section of the job which will launch 6 jobs `parallely`. 
+
 ## Execution:
 
 <p align="center">
@@ -65,6 +79,22 @@ The actual number of Pods running in a steady state might be less than the paral
 ## BackOffLimit in Jobs:
 
 When a job fails repeatedly, it will eventually reach the configured backoffLimit. Once this limit is reached, the job will no longer be retried. The actual cause of failure for the job may be available in the logs of its pods, or in other events related to the job failure. If you wish to have a job that will retry indefinitely, you can set the restartPolicy to OnFailure. This will ensure the job restarts when it fails, and the backoffLimit will never be reached, essentially creating a Job that retries until successful.
+
+We need to add `backoffLimit` in myjob.yaml file in the spec section.
+
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: myjob1
+spec:
+  backoffLimit: 4
+  template:
+    metadata:
+    
+```
+As you see that i have set `backoffLimit` to 4. i.e., if the jobs fails more than 4 times then it will not launch 5th job. A demop you can see in the below gif.
 
 ## Execution:
 
@@ -77,3 +107,4 @@ When a job fails repeatedly, it will eventually reach the configured backoffLimi
 # What is CronJobs?
 
 CronJobs are meant for performing regular scheduled actions such as backups, report generation, and so on. Each of those tasks should be configured to recur indefinitely (for example: once a day / week / month); you can define the point in time within that interval when the job should start.
+
