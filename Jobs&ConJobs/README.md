@@ -73,3 +73,7 @@ When a job fails repeatedly, it will eventually reach the configured backoffLimi
 </p>
 
 
+
+# What is CronJobs?
+
+CronJobs are meant for performing regular scheduled actions such as backups, report generation, and so on. Each of those tasks should be configured to recur indefinitely (for example: once a day / week / month); you can define the point in time within that interval when the job should start.
