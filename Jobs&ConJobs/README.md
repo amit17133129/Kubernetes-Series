@@ -138,3 +138,14 @@ spec:
           - image: centos:7
             name: mycronjob
 ```
+As cronjob meant for running a job on a schedule. So, we need to add a schedule in the spec section of the cronjob.
+
+```
+spec:
+  schedule: "* * * * *"
+  jobTemplate:         # changed
+    metadata:
+      creationTimestamp: null
+      name: mycronjob
+    spec:
+```
