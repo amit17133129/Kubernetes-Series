@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: myjob1
+spec:
+  #backoffLimit: 3
+  #completions: 6
+  #parallelism: 6
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: centos:7
+        name: myjob1
+        command: ["/bin/sleep", "10"]
+        resources: {}
+      restartPolicy: Never
+status: {}
