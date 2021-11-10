@@ -49,3 +49,16 @@ Here i have setted the `completions=6` in the `spec` section of the job which wi
 <p align="center">
   <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/completions.gif?raw=true">
 </p>
+
+## Parallelism in Jobs:
+
+By default, Job Pods do not run in parallel. The optional parallelism field specifies the maximum desired number of Pods a Job should run concurrently at any given time.
+
+The actual number of Pods running in a steady state might be less than the parallelism value if the remaining work is less than the parallelism value. If you have also set completions, the actual number of Pods running in parallel does not exceed the number of remaining completions. A Job may throttle Pod creation in response to excessive Pod creation failure.
+
+## Execution:
+
+<p align="center">
+  <img width="1000" height="550" src="https://github.com/amit17133129/images/blob/main/images/parallelism.gif?raw=true">
+</p>
+
